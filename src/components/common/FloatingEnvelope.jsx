@@ -216,14 +216,16 @@ export default function FloatingEnvelope() {
       timeoutId = setTimeout(triggerEnvelope, delay);
     };
 
-    window.addEventListener("scroll", checkScroll);
+    window.addEventListener("scroll", checkScroll, { passive: true });
     checkScroll();
 
     return () => {
       window.removeEventListener("scroll", checkScroll);
       clearTimeout(timeoutId);
     };
-  }, [isEnvelopeVisible, isFormOpen, submitStatus, isHome]);
+  }, [isFormOpen, submitStatus, isHome]);
+
+  const cachedScrollbarWidth = useRef(0);
 
   useEffect(() => {
     if (!isFormOpen && submitStatus === "idle") return undefined;
@@ -231,7 +233,8 @@ export default function FloatingEnvelope() {
     const previousBodyOverflow = document.body.style.overflow;
     const previousHtmlOverflow = document.documentElement.style.overflow;
     const previousBodyPaddingRight = document.body.style.paddingRight;
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    const scrollbarWidth = cachedScrollbarWidth.current || (window.innerWidth - document.documentElement.clientWidth);
+    if (!cachedScrollbarWidth.current) cachedScrollbarWidth.current = scrollbarWidth;
 
     document.body.style.overflow = "hidden";
     document.documentElement.style.overflow = "hidden";

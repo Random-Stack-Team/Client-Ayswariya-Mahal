@@ -182,9 +182,16 @@ export default function Gallery() {
   }, [category, measure, startSliderAnimation]);
 
   useEffect(() => {
-    const onResize = () => measure();
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
+    let raf;
+    const onResize = () => {
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(measure);
+    };
+    window.addEventListener("resize", onResize, { passive: true });
+    return () => {
+      window.removeEventListener("resize", onResize);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, [measure]);
 
   useEffect(() => {
