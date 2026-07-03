@@ -127,13 +127,14 @@ export default function SowbhagyaFooter() {
                 <MapPin className="mt-1 h-5 w-5 shrink-0 text-[#D4A843]" aria-hidden="true" />
                 <span className="font-body text-base leading-7">{siteConfig.contact.address}</span>
               </a>
-              <a
-                href={`tel:${siteConfig.contact.phonePrimary.replace(/\s/g, "")}`}
-                className="flex min-h-12 items-center gap-3 font-body text-base text-[#fdfbf7]/72 transition-colors duration-300 hover:text-[#D4A843]"
-              >
+              <div className="flex flex-wrap min-h-12 items-center gap-3 font-body text-base leading-7 text-[#fdfbf7]/72">
                 <Phone className="h-5 w-5 shrink-0 text-[#D4A843]" aria-hidden="true" />
-                <span>{siteConfig.contact.phonePrimary} <span className="mx-1 text-[#fdfbf7]/40">/</span> {siteConfig.contact.phoneSecondary}</span>
-              </a>
+                <a href={`tel:${siteConfig.contact.phonePrimary.replace(/\s/g, "")}`} className="transition-colors duration-300 hover:text-[#D4A843]">{siteConfig.contact.phonePrimary}</a>
+                <span className="text-[#fdfbf7]/40">/</span>
+                <a href={`tel:${siteConfig.contact.phoneSecondary.replace(/\s/g, "")}`} className="transition-colors duration-300 hover:text-[#D4A843]">{siteConfig.contact.phoneSecondary}</a>
+                <span className="text-[#fdfbf7]/40">/</span>
+                <a href={`tel:${siteConfig.contact.phoneMobile}`} className="transition-colors duration-300 hover:text-[#D4A843]">+91 {siteConfig.contact.phoneMobile}</a>
+              </div>
               <a
                 href={`mailto:${siteConfig.contact.email}`}
                 className="flex min-h-12 items-center gap-3 font-body text-base text-[#fdfbf7]/72 transition-colors duration-300 hover:text-[#D4A843]"

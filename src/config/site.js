@@ -7,6 +7,7 @@ const siteConfig = {
     email: 'am2001chennai@gmail.com',
     phonePrimary: '044-24756619',
     phoneSecondary: '044-24756627',
+    phoneMobile: '8754514611',
     address: '151, Jawaharlal Nehru Road, (100 Feet Road) MMDA Signal, Arumbakkam, Chennai - 600106',
     officeHours: '8:30 AM to 7:30 PM'
   },

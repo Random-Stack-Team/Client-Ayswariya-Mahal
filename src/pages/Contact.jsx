@@ -107,6 +107,8 @@ export default function Contact() {
                   <a href={`tel:${siteConfig.contact.phonePrimary.replace(/\s/g, "")}`} className="type-body text-[#4f4038] hover:text-[#D4A843] transition-colors">{siteConfig.contact.phonePrimary}</a>
                   <span className="mx-2 text-[#4f4038]/40">/</span>
                   <a href={`tel:${siteConfig.contact.phoneSecondary.replace(/\s/g, "").replace("/", "")}`} className="type-body text-[#4f4038] hover:text-[#D4A843] transition-colors">{siteConfig.contact.phoneSecondary}</a>
+                  <span className="mx-2 text-[#4f4038]/40">/</span>
+                  <a href={`tel:${siteConfig.contact.phoneMobile}`} className="type-body text-[#4f4038] hover:text-[#D4A843] transition-colors">+91 {siteConfig.contact.phoneMobile}</a>
                 </div>
               </div>
 
