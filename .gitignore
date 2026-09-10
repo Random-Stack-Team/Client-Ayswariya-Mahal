@@ -79,6 +79,9 @@ graphify.yaml
 .graphify*
 .graphify/**
 
+# Docs
+*.md
+
 # Security / Misc
 *.pem
 *.key
