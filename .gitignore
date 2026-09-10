@@ -9,7 +9,7 @@ lerna-debug.log*
 
 # Node
 node_modules/
-package-lock.json
+# keep package-lock.json in git for reproducible installs
 yarn.lock
 pnpm-lock.yaml
 
