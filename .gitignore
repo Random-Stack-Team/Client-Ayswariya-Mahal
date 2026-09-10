@@ -73,7 +73,11 @@ brain/
 artifacts/
 .system_generated/
 .agents/
+# Graphify
 graphify-out/
+graphify.yaml
+.graphify*
+.graphify/**
 
 # Security / Misc
 *.pem
@@ -82,4 +86,3 @@ graphify-out/
 *.p12
 *.pfx
 secrets.json
-graphify.yaml
