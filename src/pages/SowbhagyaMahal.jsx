@@ -218,8 +218,7 @@ export default function SowbhagyaMahal() {
                     "Fully Equipped Modern Kitchen",
                     "Luxury Rooms & Geyser Facilities",
                     "Continuous Backup Generator",
-                    "Comprehensive CCTV Coverage",
-                    "Beautiful Rooftop Garden"
+                    "Comprehensive CCTV Coverage"
                   ].map((item, i) => (
                     <motion.div key={i} variants={fadeInUp} className="flex items-start gap-4">
                       <div className="flex-shrink-0 mt-1 w-6 h-6 rounded-full bg-[#f5ead9] border border-[#D4A843]/30 flex items-center justify-center">

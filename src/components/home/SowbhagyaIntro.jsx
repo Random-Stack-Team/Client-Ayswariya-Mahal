@@ -88,7 +88,7 @@ export default function SowbhagyaIntro() {
             Sowbhagya Mahal is a refined extension of Ayswariya Mahal — a dedicated hall with the same standard of care, at a more accessible price.
           </motion.p>
           <motion.p variants={fadeInUp} className="type-body mb-6 sm:mb-7 text-[#4f4038] md:max-w-[34rem] lg:max-w-none">
-            The hall accommodates 500 seated guests, 200 for dining, and up to 1000 floating. Features include centralized air conditioning, a well-equipped kitchen, guest rooms, backup power, CCTV, and a rooftop garden.
+            The hall accommodates 500 seated guests, 200 for dining, and up to 1000 floating. Features include centralized air conditioning, a well-equipped kitchen, guest rooms, backup power, and CCTV.
           </motion.p>
 
           <motion.div variants={fadeInUp} className="mb-6 sm:mb-8 grid grid-cols-3 gap-3 sm:gap-4 md:gap-4 xl:grid-cols-3 xl:gap-4">

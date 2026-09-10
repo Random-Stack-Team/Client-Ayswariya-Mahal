@@ -6,6 +6,8 @@ import { EnquiryProvider } from "./context/EnquiryContext";
 import OpeningAnimation from "./components/common/OpeningAnimation";
 import ScrollToTop from "./components/common/ScrollToTop";
 import { routeLoaders, warmPrimaryRoutes } from "./utils/routePrefetch";
+import siteConfig from "./config/site";
+import Maintenance from "./pages/Maintenance";
 
 const Home = lazy(routeLoaders["/"]);
 const About = lazy(routeLoaders["/about"]);
@@ -58,8 +60,22 @@ function AnimatedRoutes() {
   );
 }
 
+function isMaintenanceBypassed() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    if (params.has("preview") || params.get("bypass") === "maintenance") return true;
+    if (window.sessionStorage.getItem("maintenance-bypass") === "true") return true;
+    if (window.localStorage.getItem("maintenance-bypass") === "true") return true;
+  } catch {
+    return false;
+  }
+  return false;
+}
+
 function App() {
-  const [showOpening, setShowOpening] = useState(shouldShowOpeningAnimation);
+  const [maintenanceBypass] = useState(isMaintenanceBypassed);
+  const isMaintenance = Boolean(siteConfig.maintenance) && !maintenanceBypass;
+  const [showOpening, setShowOpening] = useState(() => (isMaintenance ? false : shouldShowOpeningAnimation()));
 
   useEffect(() => {
     if (showOpening) return undefined;
@@ -93,6 +109,16 @@ function App() {
   const handleOpeningComplete = () => {
     setShowOpening(false);
   };
+
+  if (isMaintenance) {
+    return (
+      <HelmetProvider>
+        <Router>
+          <Maintenance />
+        </Router>
+      </HelmetProvider>
+    );
+  }
 
   return (
     <HelmetProvider>

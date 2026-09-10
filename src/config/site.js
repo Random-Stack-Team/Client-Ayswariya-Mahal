@@ -1,4 +1,5 @@
 const siteConfig = {
+  maintenance: true,
   title: 'Ayswariya Mahal',
   description: 'Ayswariya Mahal is a premium wedding and event venue in Chennai with elegant interiors, expansive guest capacity, dining facilities, and celebration spaces for weddings, receptions, engagements, and family events.',
   url: 'https://ayswariyamahal.com',
