@@ -12,8 +12,9 @@ export default function Home() {
   return (
     <>
       <SEO 
-        title="Premium Wedding & Event Venue in Chennai" 
-        description="Ayswariya Mahal is a premium wedding and event venue in Chennai for weddings, receptions, engagements, and family celebrations with elegant interiors, spacious seating, dining facilities, and refined hospitality." 
+        title="Premium Wedding & Event Venue in Chennai — Arumbakkam" 
+        description="Chennai's premium wedding venue in Arumbakkam for weddings, receptions and engagements. AC halls, dining, luxury rooms and hospitality since 2001." 
+        keywords="wedding venue Chennai, marriage hall Arumbakkam, reception hall Chennai"
       />
       <PageTransition>
         <Hero />

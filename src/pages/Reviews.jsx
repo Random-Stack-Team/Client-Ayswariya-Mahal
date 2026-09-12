@@ -140,8 +140,9 @@ export default function Reviews() {
   return (
     <>
       <SEO
-        title="Guest Reviews & Testimonials"
-        description="Read guest reviews and testimonials from families who celebrated weddings, receptions, engagements, and special events at Ayswariya Mahal in Chennai."
+        title="Guest Reviews & Testimonials - 4.2/5 from 1600+ Families"
+        description="Read 4.2/5 reviews from 1600+ families who celebrated weddings and receptions at Ayswariya Mahal, Chennai. Real testimonials and ratings."
+        keywords="Ayswariya Mahal reviews, wedding hall testimonials Chennai, guest ratings"
         path="/reviews"
       />
       <PageTransition>

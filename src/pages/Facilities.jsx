@@ -138,8 +138,9 @@ export default function Facilities() {
   return (
     <>
       <SEO
-        title="Wedding Hall Facilities & Guest Amenities"
-        description="Explore Ayswariya Mahal facilities including generous event halls, centralized air conditioning, distinguished dining, luxury rooms, parking, CCTV security, generator backup, and prime Chennai access."
+        title="Wedding Hall Facilities & Guest Amenities in Chennai"
+        description="Explore Ayswariya Mahal facilities: AC halls, dining, luxury rooms, parking, CCTV and generator backup in Arumbakkam, Chennai. Plan your visit today."
+        keywords="wedding hall facilities Chennai, AC marriage hall Arumbakkam, venue amenities"
         path="/facilities"
       />
 

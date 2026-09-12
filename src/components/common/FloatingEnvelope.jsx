@@ -398,7 +398,7 @@ export default function FloatingEnvelope() {
               transition={paperSpringConfig}
               className="fixed inset-0 z-[200] flex items-center justify-center p-4 pointer-events-auto"
             >
-              <div className="relative bg-[#fdfbf7] flex flex-col rounded-sm overflow-y-auto border-[2px] border-[#4a3623] antialiased w-full max-w-[360px] max-h-[calc(100dvh-32px)] shadow-[8px_8px_0_rgba(74,54,35,0.2)]" style={{ WebkitFontSmoothing: "antialiased" }}>
+              <div className="relative bg-[#fdfbf7] flex flex-col rounded-sm overflow-y-auto border-[2px] border-[#4a3623] antialiased w-full max-w-[360px] max-h-[calc(100dvh-32px)] shadow-[8px_8px_0_rgba(74,54,35,0.2)]">
                 <div className="absolute inset-[6px] border-[2px] border-[#d4af37] pointer-events-none rounded-sm"></div>
 
                 {submitStatus === "idle" && (
@@ -537,8 +537,7 @@ export default function FloatingEnvelope() {
               exit={{ x: 300, y: 0, opacity: 0, scale: 0.9 }}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
-              className="relative pointer-events-auto h-[180px] w-[280px] md:h-[210px] md:w-[340px]"
-              style={{ perspective: 1200 }}
+              className="relative pointer-events-auto h-[180px] w-[280px] md:h-[210px] md:w-[340px] perspective-1200"
             >
               {/* Layer 1: Back of Envelope (Inside) - hidden on mobile when expanded */}
               <div className={`absolute inset-0 bg-[#e0d0b0] border-[2px] border-[#4a3623] rounded-sm z-10 overflow-hidden shadow-[inset_0_4px_0_rgba(0,0,0,0.1)] ${isExpanded && isCompactViewport && !isMobileClosing ? "hidden" : ""}`}>

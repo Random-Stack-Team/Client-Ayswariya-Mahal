@@ -1,7 +1,7 @@
 const siteConfig = {
   maintenance: true,
   title: 'Ayswariya Mahal',
-  description: 'Ayswariya Mahal is a premium wedding and event venue in Chennai with elegant interiors, expansive guest capacity, dining facilities, and celebration spaces for weddings, receptions, engagements, and family events.',
+  description: 'Ayswariya Mahal — Chennai premium wedding venue in Arumbakkam for weddings, receptions and engagements. AC halls, dining, luxury rooms and warm hospitality since 2001.',
   url: 'https://ayswariyamahal.com',
   ogImage: 'https://ayswariyamahal.com/images/ayswariya-mahal-og.webp',
   contact: {

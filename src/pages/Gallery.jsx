@@ -268,8 +268,9 @@ export default function Gallery() {
   return (
     <>
       <SEO
-        title="Wedding Gallery - Hall, Decor & Celebrations"
-        description="Browse the Ayswariya Mahal gallery — grand halls, traditional décor, and candid moments from weddings, receptions, and family events in Chennai."
+        title="Wedding Gallery - Hall, Decor & Celebration Photos"
+        description="Browse Ayswariya Mahal gallery: grand halls, decor and candid wedding moments in Chennai. Real weddings, receptions and family celebrations."
+        keywords="wedding gallery Chennai, marriage hall photos, decor images Arumbakkam"
         path="/gallery"
       />
       <PageTransition>

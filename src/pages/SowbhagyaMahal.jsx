@@ -42,8 +42,9 @@ export default function SowbhagyaMahal() {
   return (
     <>
       <SEO
-        title="Sowbhagya Mahal - Premium Mini Hall"
-        description="Sowbhagya Mahal is an intimate hall by Ayswariya Mahal in Chennai — ideal for engagements, mini weddings, receptions, and family functions."
+        title="Sowbhagya Mahal - Premium Mini Hall in Chennai"
+        description="Sowbhagya Mahal by Ayswariya Mahal — intimate AC hall in Chennai for engagements, mini weddings and family functions. 500 seating, 200 dining."
+        keywords="Sowbhagya Mahal, mini hall Chennai, small wedding venue Arumbakkam"
         path="/sowbhagya-mahal"
       />
       <PageTransition>

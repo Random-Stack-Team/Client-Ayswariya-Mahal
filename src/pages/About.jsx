@@ -47,8 +47,9 @@ export default function About() {
   return (
     <>
       <SEO 
-        title="About Us - Premium Wedding Venue Legacy" 
-        description="Discover Ayswariya Mahal, a trusted Chennai wedding venue with over two decades of distinguished gatherings, refined event spaces, thoughtful hospitality, and facilities for weddings, receptions, and family functions." 
+        title="About Us - Wedding Venue Legacy Since 2001" 
+        description="Discover Ayswariya Mahal, Chennai's trusted wedding venue since 2001. Elegant halls, warm hospitality and facilities for weddings, receptions and family events." 
+        keywords="about Ayswariya Mahal, wedding venue history Chennai, Arumbakkam hall legacy"
         path="/about"
       />
       <PageTransition>

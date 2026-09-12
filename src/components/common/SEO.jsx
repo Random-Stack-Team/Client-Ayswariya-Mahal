@@ -1,12 +1,13 @@
 import { Helmet } from 'react-helmet-async';
 import siteConfig from '../../config/site';
 
-export default function SEO({ title, description, path = '' }) {
+export default function SEO({ title, description, path = '', keywords }) {
   const pageTitle = title ? `${title} | ${siteConfig.title}` : siteConfig.title;
   const pageDescription = description || siteConfig.description;
   const url = `${siteConfig.url}${path}`;
+  const metaKeywords = keywords || 'wedding venue Chennai, marriage hall Arumbakkam, Ayswariya Mahal, reception hall Chennai, Sowbhagya Mahal';
 
-  const jsonLd = {
+  const jsonLdVenue = {
     '@context': 'https://schema.org',
     '@type': 'EventVenue',
     name: 'Ayswariya Mahal',
@@ -25,6 +26,31 @@ export default function SEO({ title, description, path = '' }) {
     email: siteConfig.contact.email,
     openingHours: '08:30-19:30',
     sameAs: Object.values(siteConfig.socials),
+    geo: { '@type': 'GeoCoordinates', latitude: 13.0625433, longitude: 80.2115214 },
+    priceRange: '$$',
+  };
+
+  const jsonLdOrg = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Ayswariya Mahal',
+    url: siteConfig.url,
+    logo: siteConfig.ogImage,
+    sameAs: Object.values(siteConfig.socials),
+    contactPoint: { '@type': 'ContactPoint', telephone: `+91-${siteConfig.contact.phoneMobile}`, contactType: 'customer service', areaServed: 'IN', availableLanguage: ['en', 'ta'] },
+  };
+
+  const jsonLdLocal = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'Ayswariya Mahal',
+    image: siteConfig.ogImage,
+    address: jsonLdVenue.address,
+    telephone: jsonLdVenue.telephone,
+    email: siteConfig.contact.email,
+    url: siteConfig.url,
+    priceRange: '$$',
+    openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'], opens: '08:30', closes: '19:30' }],
   };
 
   return (
@@ -32,8 +58,16 @@ export default function SEO({ title, description, path = '' }) {
       {/* Standard SEO */}
       <title>{pageTitle}</title>
       <meta name="description" content={pageDescription} />
+      <meta name="keywords" content={metaKeywords} />
       <link rel="canonical" href={url} />
+      <link rel="alternate" hrefLang="en-IN" href={url} />
+      <link rel="alternate" hrefLang="x-default" href={url} />
       <meta name="robots" content="index, follow, max-image-preview:large" />
+      <meta name="author" content="Ayswariya Mahal" />
+      <meta name="geo.region" content="IN-TN" />
+      <meta name="geo.placename" content="Chennai" />
+      <meta name="geo.position" content="13.0625433;80.2115214" />
+      <meta name="ICBM" content="13.0625433, 80.2115214" />
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
@@ -54,7 +88,9 @@ export default function SEO({ title, description, path = '' }) {
       <meta name="twitter:image" content={siteConfig.ogImage} />
 
       {/* Structured Data */}
-      <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      <script type="application/ld+json">{JSON.stringify(jsonLdVenue)}</script>
+      <script type="application/ld+json">{JSON.stringify(jsonLdOrg)}</script>
+      <script type="application/ld+json">{JSON.stringify(jsonLdLocal)}</script>
     </Helmet>
   );
 }

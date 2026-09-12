@@ -28,8 +28,9 @@ export default function Contact() {
   return (
     <>
       <SEO 
-        title="Contact & Enquiry - Book Your Wedding Visit" 
-        description="Contact Ayswariya Mahal in Chennai to enquire about wedding hall availability, guest capacity, dining facilities, event packages, and venue visits for weddings, receptions, and family gatherings." 
+        title="Contact & Enquiry - Book Your Wedding Visit Today" 
+        description="Contact Ayswariya Mahal, Arumbakkam to check hall availability, packages and venue visits for weddings and receptions. Call +91 8754514611 today." 
+        keywords="contact Ayswariya Mahal, book wedding hall Chennai, venue enquiry Arumbakkam"
         path="/contact"
       />
       <PageTransition>
