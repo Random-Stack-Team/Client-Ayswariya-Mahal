@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import gsap from "gsap";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 import heroImage from "../../assets/images/Home Hero 2.webp";
 import { useEnquiry } from "../../context/useEnquiry";
@@ -27,7 +26,21 @@ export default function Hero() {
   const animCtx = useRef(null);
 
   useEffect(() => {
-    const startAnimation = () => {
+    let cancelled = false;
+
+    // Preload LCP image early (high priority)
+    const preloadLink = document.createElement("link");
+    preloadLink.rel = "preload";
+    preloadLink.as = "image";
+    preloadLink.href = heroImage;
+    preloadLink.fetchPriority = "high";
+    preloadLink.setAttribute("imagesizes", "100vw");
+    document.head.appendChild(preloadLink);
+
+    const startAnimation = async () => {
+      if (cancelled) return;
+      const { default: gsap } = await import("gsap");
+      if (cancelled) return;
       const ctx = gsap.context(() => {
         gsap.set(imageRef.current, { scale: 1.08 });
         gsap.set(contentRef.current?.children || [], { opacity: 0, y: 20 });
@@ -70,18 +83,32 @@ export default function Hero() {
       animCtx.current = ctx;
     };
 
+    const runIdle = (cb) => {
+      if ("requestIdleCallback" in window) return window.requestIdleCallback(cb, { timeout: 2000 });
+      return window.setTimeout(cb, 300);
+    };
+    let idleId;
+    const schedule = () => {
+      idleId = runIdle(() => startAnimation());
+    };
+
     const cleanup = () => {
       if (animCtx.current) {
         animCtx.current.revert();
         animCtx.current = null;
       }
+      if (idleId) {
+        if ("cancelIdleCallback" in window) window.cancelIdleCallback(idleId);
+        else window.clearTimeout(idleId);
+      }
+      preloadLink.remove();
     };
 
     if (document.documentElement.classList.contains("intro-scroll-lock")) {
       const observer = new MutationObserver(() => {
         if (!document.documentElement.classList.contains("intro-scroll-lock")) {
           observer.disconnect();
-          startAnimation();
+          schedule();
         }
       });
       observer.observe(document.documentElement, {
@@ -89,12 +116,16 @@ export default function Hero() {
         attributeFilter: ["class"],
       });
       return () => {
+        cancelled = true;
         observer.disconnect();
         cleanup();
       };
     } else {
-      startAnimation();
-      return cleanup;
+      schedule();
+      return () => {
+        cancelled = true;
+        cleanup();
+      };
     }
   }, [isDesktop]);
 
@@ -107,10 +138,11 @@ export default function Hero() {
           src={heroImage}
           alt="Ayswariya Mahal main entrance"
           loading="eager"
-          decoding="async"
           fetchPriority="high"
+          decoding="async"
           width="1536"
           height="1024"
+          sizes="100vw"
           className="h-full w-full object-cover object-center will-change-transform [filter:brightness(0.88)_saturate(1.1)_contrast(1.02)]"
         />
       </div>
