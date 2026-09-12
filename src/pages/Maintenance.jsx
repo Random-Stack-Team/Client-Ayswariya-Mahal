@@ -39,6 +39,10 @@ export default function Maintenance() {
           <p className="mt-3 font-serif text-sm italic tracking-[0.08em] text-[#6A1724]/60">
             Ayswariya Mahal — Est. 2001
           </p>
+          {/* SEO: hierarchical headings for crawlers while keeping visual minimal */}
+          <h2 className="sr-only">Premium Wedding and Event Venue in Chennai — Arumbakkam</h2>
+          <h3 className="sr-only">Spacious halls, dining facilities and hospitality for weddings and receptions since 2001</h3>
+          <h4 className="sr-only">Arumbakkam, Chennai — 151 Jawaharlal Nehru Road</h4>
         </div>
       </main>
     </>
